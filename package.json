@@ -1,0 +1,45 @@
+{
+  "name": "yaml-lint",
+  "version": "0.0.1",
+  "description": "A simple (CLI) tool to lint YAML files",
+  "author": {
+    "name": "Thomas Rasshofer",
+    "email": "hello@thomasrasshofer.com",
+    "url": "http://thomasrasshofer.com/"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/rasshofer/yaml-lint.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rasshofer/yaml-lint/issues"
+  },
+  "main": "yaml-lint.js",
+  "keywords": [
+    "yaml",
+    "lint",
+    "linter",
+    "cli"
+  ],
+  "dependencies": {
+    "bluebird": "^3.4.6",
+    "glob": "^7.1.1",
+    "js-yaml": "^3.6.1",
+    "leprechaun": "0.0.2",
+    "lodash.merge": "^4.6.0",
+    "lodash.snakecase": "^4.1.1",
+    "nconf": "^0.8.4"
+  },
+  "devDependencies": {
+    "jshint": "^2.9.4",
+    "tap": "^8.0.0"
+  },
+  "scripts": {
+    "test": "jshint yaml-lint.js cli.js test/tests.js && tap test/tests.js --cov"
+  },
+  "preferGlobal": "true",
+  "bin": {
+    "yamllint": "cli.js"
+  }
+}
