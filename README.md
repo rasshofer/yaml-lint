@@ -46,6 +46,9 @@ $ yamllint test.yaml
 
 ## Changelog
 
+* 0.0.2
+  * Prettier error messages within CLI
+  * Add shebang for CLI
 * 0.0.1
   * Initial version
 
@@ -55,3 +58,8 @@ Copyright (c) 2016 [Thomas Rasshofer](http://thomasrasshofer.com/)
 Licensed under the MIT license.
 
 See LICENSE for more info.
+
+## Contributors
+
+- [@rasshofer](https://github.com/rasshofer)
+- [@sapegin](https://github.com/sapegin)
