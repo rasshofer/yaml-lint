@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var path = require('path');
 var nconf = require('nconf');
 var yamlLint = require('./yaml-lint');
