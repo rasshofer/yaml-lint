@@ -36,6 +36,6 @@ Promise.map(files, function (file) {
   leprechaun.success('YAML Lint successful.');
 }).catch(function (error) {
   leprechaun.error('YAML Lint failed.');
-  console.error(error);
+  console.error(error.message);
   process.exit(1);
 });
