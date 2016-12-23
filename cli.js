@@ -32,12 +32,22 @@ var files = [];
   files = files.concat(glob.sync(file));
 });
 
-Promise.map(files, function (file) {
-  return yamlLint.lintFile(file, options);
-}).then(function () {
-  leprechaun.success('YAML Lint successful.');
-}).catch(function (error) {
+if (files.length === 0) {
+
   leprechaun.error('YAML Lint failed.');
-  console.error(error.message);
+  console.error('No YAML files were found matching your selection.');
   process.exit(1);
-});
+
+} else {
+
+  Promise.map(files, function (file) {
+    return yamlLint.lintFile(file, options);
+  }).then(function () {
+    leprechaun.success('YAML Lint successful.');
+  }).catch(function (error) {
+    leprechaun.error('YAML Lint failed.');
+    console.error(error.message);
+    process.exit(1);
+  });
+
+}
