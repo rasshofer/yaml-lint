@@ -41,11 +41,15 @@ if (files.length === 0) {
 } else {
 
   Promise.map(files, function (file) {
-    return yamlLint.lintFile(file, options);
+    return yamlLint.lintFile(file, options)
+      .catch(function (err) {
+        err.file = file
+        throw err
+      })
   }).then(function () {
     leprechaun.success('YAML Lint successful.');
   }).catch(function (error) {
-    leprechaun.error('YAML Lint failed.');
+    leprechaun.error('YAML Lint failed for ' + error.file);
     console.error(error.message);
     process.exit(1);
   });
