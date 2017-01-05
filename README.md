@@ -46,6 +46,8 @@ $ yamllint test.yaml
 
 ## Changelog
 
+* 0.0.4
+  * Print file names when logging YAML errors while using the CLI
 * 0.0.3
   * Implement check for empty file selections while using the CLI
 * 0.0.2
