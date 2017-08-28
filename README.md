@@ -46,6 +46,10 @@ $ yamllint test.yaml
 
 ## Changelog
 
+* 1.0.0
+  * Update dependencies
+  * Enable tests for Node.js 8
+  * Remove support for Node.js 0.x
 * 0.0.4
   * Print file names when logging YAML errors while using the CLI
 * 0.0.3
@@ -58,7 +62,7 @@ $ yamllint test.yaml
 
 ## License
 
-Copyright (c) 2016 [Thomas Rasshofer](http://thomasrasshofer.com/)  
+Copyright (c) 2017 [Thomas Rasshofer](http://thomasrasshofer.com/)  
 Licensed under the MIT license.
 
 See LICENSE for more info.
@@ -68,3 +72,4 @@ See LICENSE for more info.
 - [@rasshofer](https://github.com/rasshofer)
 - [@sapegin](https://github.com/sapegin)
 - [@bendrucker](https://github.com/bendrucker)
+- [@PeterDaveHello](https://github.com/PeterDaveHello)
