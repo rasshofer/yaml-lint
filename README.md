@@ -32,7 +32,7 @@ npm install -g yaml-lint
 $ yamllint test.yaml
 ```
 
-## options
+## Options
 
 ### `schema` (string)
 
