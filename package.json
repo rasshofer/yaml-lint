@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "jshint": "^2.9.4",
-    "tap": "^8.0.0"
+    "tap": "^10.3.3"
   },
   "scripts": {
     "test": "jshint yaml-lint.js cli.js test/tests.js && tap test/tests.js --cov"
