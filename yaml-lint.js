@@ -6,6 +6,8 @@ var yaml = require('js-yaml');
 
 function lint(content, opts) {
 
+  opts = opts || {};
+
   var options = merge({
     schema: 'DEFAULT_SAFE_SCHEMA'
   }, opts);
@@ -13,12 +15,12 @@ function lint(content, opts) {
   return new Promise(function (resolve, reject) {
     try {
       if (!opts.allowMulti) {
-        var doc = yaml.safeLoad(content, {
+        yaml.safeLoad(content, {
           schema: yaml[options.schema]
         });
         resolve();
       } else {
-        var doc = yaml.safeLoadAll(content, function(doc) {}, {
+        yaml.safeLoadAll(content, function(doc) {}, {
           schema: yaml[options.schema]
         });
         resolve();

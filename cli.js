@@ -33,7 +33,7 @@ var files = [];
 });
 
 if (config.multi) {
-  files = files.concat(glob.sync(config.multi))
+  files = files.concat(glob.sync(config.multi));
   options.allowMulti = true;
 } else {
   options.allowMulti = false;

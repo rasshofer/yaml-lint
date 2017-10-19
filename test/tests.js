@@ -32,3 +32,19 @@ tap.test('Missing file', function (childTest) {
     childTest.end();
   });
 });
+
+tap.test('Disallowed multi stream files', function (childTest) {
+  yamlLint.lintFile(path.resolve(__dirname, 'testMulti.yaml'), {allowMulti: false}).then(function () {
+    throw new Error();
+  }).catch(function (e) {
+    childTest.end();
+  });
+});
+
+tap.test('Allowed multi stream files', function (childTest) {
+  yamlLint.lintFile(path.resolve(__dirname, 'testMulti.yaml'), {allowMulti: true}).then(function () {
+    childTest.end();
+  }).catch(function (e) {
+    throw e;
+  });
+});
