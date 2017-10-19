@@ -32,6 +32,13 @@ var files = [];
   files = files.concat(glob.sync(file));
 });
 
+if (config.multi) {
+  files = files.concat(glob.sync(config.multi))
+  options.allowMulti = true;
+} else {
+  options.allowMulti = false;
+}
+
 if (files.length === 0) {
 
   leprechaun.error('YAML Lint failed.');
@@ -45,8 +52,8 @@ if (files.length === 0) {
       err.file = file;
       throw err;
     });
-  }).then(function () {
-    leprechaun.success('YAML Lint successful.');
+  }).then(function (file) {
+    leprechaun.success('YAML Lint successful for '+file);
   }).catch(function (error) {
     leprechaun.error('YAML Lint failed for ' + error.file);
     console.error(error.message);
