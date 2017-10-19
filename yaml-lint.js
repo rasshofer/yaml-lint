@@ -3,7 +3,10 @@ var merge = require('lodash.merge');
 var Promise = require('bluebird');
 var yaml = require('js-yaml');
 
+
 function lint(content, opts) {
+
+  opts = opts || {};
 
   var options = merge({
     schema: 'DEFAULT_SAFE_SCHEMA'
@@ -11,10 +14,17 @@ function lint(content, opts) {
 
   return new Promise(function (resolve, reject) {
     try {
-      var doc = yaml.safeLoad(content, {
-        schema: yaml[options.schema]
-      });
-      resolve();
+      if (!opts.allowMulti) {
+        yaml.safeLoad(content, {
+          schema: yaml[options.schema]
+        });
+        resolve();
+      } else {
+        yaml.safeLoadAll(content, function(doc) {}, {
+          schema: yaml[options.schema]
+        });
+        resolve();
+      }
     } catch (e) {
       reject(e);
     }
@@ -29,7 +39,7 @@ function lintFile(file, opts) {
         reject(err);
       } else {
         lint(content, opts).then(function (result) {
-          resolve(result);
+          resolve(file);
         }).catch(function (e) {
           reject(e);
         });
