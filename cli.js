@@ -1,15 +1,13 @@
 #!/usr/bin/env node
 
-var path = require('path');
-var nconf = require('nconf');
-var yamlLint = require('./yaml-lint');
-var leprechaun = require('leprechaun');
-var merge = require('lodash.merge');
-var snakeCase = require('lodash.snakecase');
-var glob = require('glob');
-var Promise = require('bluebird');
+const path = require('path');
+const nconf = require('nconf');
+const yamlLint = require('./yaml-lint');
+const leprechaun = require('leprechaun');
+const snakeCase = require('lodash.snakecase');
+const glob = require('glob');
 
-var options = {};
+const options = {};
 
 nconf.argv().env({
   match: /^yamllint/i
@@ -19,37 +17,38 @@ nconf.argv().env({
 
 [
   'schema'
-].forEach(function (key) {
-  var env = snakeCase(key);
+].forEach(key => {
+  const env = snakeCase(key);
   options[key] = nconf.get(key) || nconf.get('yamllint_' + env.toLowerCase()) || nconf.get('YAMLLINT' + env.toUpperCase());
 });
 
-var config = nconf.get();
+const config = nconf.get();
 
-var files = [];
+let files = [];
 
-(config._ || []).forEach(function (file) {
+(config._ || []).forEach(file => {
   files = files.concat(glob.sync(file));
 });
 
 if (files.length === 0) {
 
   leprechaun.error('YAML Lint failed.');
-  console.error('No YAML files were found matching your selection.');
+  leprechaun.error('No YAML files were found matching your selection.');
   process.exit(1);
 
 } else {
 
-  Promise.map(files, function (file) {
-    return yamlLint.lintFile(file, options).catch(function (err) {
+  Promise.all(files.map(file => yamlLint
+    .lintFile(file, options)
+    .catch(err => {
       err.file = file;
       throw err;
-    });
-  }).then(function () {
+    })
+  )).then(() => {
     leprechaun.success('YAML Lint successful.');
-  }).catch(function (error) {
+  }).catch(error => {
     leprechaun.error('YAML Lint failed for ' + error.file);
-    console.error(error.message);
+    leprechaun.error(error.message);
     process.exit(1);
   });
 
