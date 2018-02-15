@@ -23,22 +23,22 @@
     "cli"
   ],
   "dependencies": {
-    "bluebird": "^3.5.0",
     "glob": "^7.1.2",
-    "js-yaml": "^3.9.1",
+    "js-yaml": "^3.10.0",
     "leprechaun": "0.0.2",
     "lodash.merge": "^4.6.0",
     "lodash.snakecase": "^4.1.1",
-    "nconf": "^0.8.4"
+    "nconf": "^0.10.0"
   },
   "devDependencies": {
-    "jshint": "^2.9.5",
-    "tap": "^10.7.2"
+    "eslint": "^4.16.0",
+    "tap": "^11.0.1"
   },
   "scripts": {
-    "test": "jshint yaml-lint.js cli.js test/tests.js && tap test/tests.js --cov"
+    "lint": "eslint .",
+    "test": "npm run lint && tap test/tests.js --cov"
   },
-  "preferGlobal": "true",
+  "preferGlobal": true,
   "bin": {
     "yamllint": "cli.js"
   }
