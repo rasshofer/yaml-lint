@@ -46,6 +46,9 @@ $ yamllint test.yaml
 
 ## Changelog
 
+* 1.1.0
+  * Update dependencies
+  * Migrate syntax to ES2015+
 * 1.0.0
   * Update dependencies
   * Enable tests for Node.js 8
@@ -62,7 +65,7 @@ $ yamllint test.yaml
 
 ## License
 
-Copyright (c) 2017 [Thomas Rasshofer](http://thomasrasshofer.com/)  
+Copyright (c) 2018 [Thomas Rasshofer](http://thomasrasshofer.com/)  
 Licensed under the MIT license.
 
 See LICENSE for more info.
