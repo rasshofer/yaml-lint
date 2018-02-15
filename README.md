@@ -13,11 +13,11 @@ npm install --save-dev yaml-lint
 ```
 
 ```js
-var yamlLint = require('yaml-lint');
+const yamlLint = require('yaml-lint');
 
-yamlLint.lint('test: 123').then(function () {
+yamlLint.lint('test: 123').then(() => {
   console.log('Valid YAML file.');
-}).catch(function (error) {
+}).catch((error) => {
   console.error('Invalid YAML file.', error);
 });
 ```

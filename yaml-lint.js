@@ -29,9 +29,9 @@ function lintFile(file, opts) {
       if (err) {
         reject(err);
       } else {
-        lint(content, opts).then(result => {
+        lint(content, opts).then((result) => {
           resolve(result);
-        }).catch(e => {
+        }).catch((e) => {
           reject(e);
         });
       }

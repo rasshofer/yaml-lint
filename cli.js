@@ -17,7 +17,7 @@ nconf.argv().env({
 
 [
   'schema'
-].forEach(key => {
+].forEach((key) => {
   const env = snakeCase(key);
   options[key] = nconf.get(key) || nconf.get('yamllint_' + env.toLowerCase()) || nconf.get('YAMLLINT' + env.toUpperCase());
 });
@@ -26,7 +26,7 @@ const config = nconf.get();
 
 let files = [];
 
-(config._ || []).forEach(file => {
+(config._ || []).forEach((file) => {
   files = files.concat(glob.sync(file));
 });
 
@@ -38,15 +38,15 @@ if (files.length === 0) {
 
 } else {
 
-  Promise.all(files.map(file => yamlLint
+  Promise.all(files.map((file) => yamlLint
     .lintFile(file, options)
-    .catch(err => {
+    .catch((err) => {
       err.file = file;
       throw err;
     })
   )).then(() => {
     leprechaun.success('YAML Lint successful.');
-  }).catch(error => {
+  }).catch((error) => {
     leprechaun.error('YAML Lint failed for ' + error.file);
     leprechaun.error(error.message);
     process.exit(1);
