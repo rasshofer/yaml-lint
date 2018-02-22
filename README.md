@@ -47,6 +47,16 @@ $ yamllint test.yaml
 - `CORE_SCHEMA` Same as `JSON_SCHEMA` ([http://www.yaml.org/spec/1.2/spec.html#id2804923](http://www.yaml.org/spec/1.2/spec.html#id2804923))
 - `DEFAULT_SAFE_SCHEMA` All supported YAML types, without unsafe ones (`!!js/undefined`, `!!js/regexp`, and `!!js/function`) ([http://yaml.org/type/](http://yaml.org/type/))
 
+### `ignore-path` (string)
+
+> Specifies a glob or globs to ignore
+
+Sample:
+
+```shell
+$ yamllint **/*.(yaml|yml) --ignore-path=foobar.yml --ignore-path=dir/*.yaml
+```
+
 ## Changelog
 
 * 1.1.0
