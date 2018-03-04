@@ -82,6 +82,10 @@ yamllint **/*.(yaml|yml) --ignore=foobar.yml --ignore=dir/*.yaml
 
 ## Changelog
 
+* 1.2.0
+  * Add documentation regarding how to specify options
+  * Update dependencies
+  * Support ignoring specific files
 * 1.1.0
   * Update dependencies
   * Migrate syntax to ES2015+
