@@ -39,7 +39,7 @@ yamllint test.yaml
 
 YAML Lint is configured using the following options via a configuration file, environment variables, and/or command-line arguments.
 
-First of all, YAML Lint looks for a JSON file called `yaml-lint.json` within the current working directory.
+First of all, YAML Lint looks for a JSON file called `.yaml-lint.json` within the current working directory.
 
 ```json
 {
@@ -72,7 +72,7 @@ yamllint --schema=CORE_SCHEMA --ignore=dir/*.yaml
 - `CORE_SCHEMA` Same as `JSON_SCHEMA` ([http://www.yaml.org/spec/1.2/spec.html#id2804923](http://www.yaml.org/spec/1.2/spec.html#id2804923))
 - `DEFAULT_SAFE_SCHEMA` All supported YAML types, without unsafe ones (`!!js/undefined`, `!!js/regexp`, and `!!js/function`) ([http://yaml.org/type/](http://yaml.org/type/))
 
-### `ignore` (string)
+### `ignore` (string or array of strings)
 
 > Specifies one or multiple glob patterns to ignore
 
