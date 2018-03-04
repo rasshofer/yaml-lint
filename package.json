@@ -31,8 +31,8 @@
     "nconf": "^0.10.0"
   },
   "devDependencies": {
-    "eslint": "^4.17.0",
-    "tap": "^11.1.0"
+    "eslint": "^4.18.2",
+    "tap": "^11.1.1"
   },
   "scripts": {
     "lint": "eslint .",

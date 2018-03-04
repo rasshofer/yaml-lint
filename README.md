@@ -32,7 +32,7 @@ npm install -g yaml-lint
 ```
 
 ```shell
-$ yamllint test.yaml
+yamllint test.yaml
 ```
 
 ## Options
@@ -47,14 +47,12 @@ $ yamllint test.yaml
 - `CORE_SCHEMA` Same as `JSON_SCHEMA` ([http://www.yaml.org/spec/1.2/spec.html#id2804923](http://www.yaml.org/spec/1.2/spec.html#id2804923))
 - `DEFAULT_SAFE_SCHEMA` All supported YAML types, without unsafe ones (`!!js/undefined`, `!!js/regexp`, and `!!js/function`) ([http://yaml.org/type/](http://yaml.org/type/))
 
-### `ignore-path` (string)
+### `ignore` (string)
 
-> Specifies a glob or globs to ignore
-
-Sample:
+> Specifies one or multiple glob patterns to ignore
 
 ```shell
-$ yamllint **/*.(yaml|yml) --ignore-path=foobar.yml --ignore-path=dir/*.yaml
+yamllint **/*.(yaml|yml) --ignore=foobar.yml --ignore=dir/*.yaml
 ```
 
 ## Changelog

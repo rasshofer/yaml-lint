@@ -17,7 +17,7 @@ nconf.argv().env({
 
 [
   'schema',
-  'ignorePath'
+  'ignore'
 ].forEach((key) => {
   const env = snakeCase(key);
   options[key] = nconf.get(key) || nconf.get('yamllint_' + env.toLowerCase()) || nconf.get('YAMLLINT' + env.toUpperCase());
@@ -31,7 +31,7 @@ let files = [];
   files = files.concat(glob.sync(pattern, {
     nocase: true,
     dot: true,
-    ignore: config.ignorePath
+    ignore: config.ignore
   }));
 });
 
