@@ -37,6 +37,31 @@ yamllint test.yaml
 
 ## Options
 
+YAML Lint is configured using the following options via a configuration file, environment variables, and/or command-line arguments.
+
+First of all, YAML Lint looks for a JSON file called `yaml-lint.json` within the current working directory.
+
+```json
+{
+  "schema": "CORE_SCHEMA",
+  "ignore": "dir/*.yaml"
+}
+```
+
+Afterwards, YAML Lint will take environment variables into account.
+
+```shell
+YAMLLINT_SCHEMA=CORE_SCHEMA YAMLLINT_IGNORE=dir/*.yaml yamllint
+```
+
+Concluding, YAML Lint will take command-line arguments into account.
+
+```shell
+yamllint --schema=CORE_SCHEMA --ignore=dir/*.yaml
+```
+
+(All options are merged into a single configuration using the hierarchy described above.)
+
 ### `schema` (string)
 
 > Specifies a schema to use
