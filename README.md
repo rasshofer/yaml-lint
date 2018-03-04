@@ -82,6 +82,8 @@ yamllint **/*.(yaml|yml) --ignore=foobar.yml --ignore=dir/*.yaml
 
 ## Changelog
 
+* 1.2.1
+  * Fix README
 * 1.2.0
   * Add documentation regarding how to specify options
   * Update dependencies
@@ -117,3 +119,4 @@ See LICENSE for more info.
 - [@bendrucker](https://github.com/bendrucker)
 - [@PeterDaveHello](https://github.com/PeterDaveHello)
 - [@poppinlp](https://github.com/poppinlp)
+- [@AndersDJohnson](https://github.com/AndersDJohnson)
