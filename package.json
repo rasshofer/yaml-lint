@@ -24,7 +24,7 @@
   ],
   "dependencies": {
     "glob": "^7.1.2",
-    "js-yaml": "^3.10.0",
+    "js-yaml": "^3.11.0",
     "leprechaun": "0.0.2",
     "lodash.merge": "^4.6.1",
     "lodash.snakecase": "^4.1.1",
@@ -36,7 +36,7 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "test": "npm run lint && tap test/tests.js --cov"
+    "test": "npm run lint && tap test/*.js --cov"
   },
   "preferGlobal": true,
   "bin": {

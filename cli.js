@@ -27,7 +27,7 @@ const config = nconf.get();
 
 let files = [];
 
-(config._ || []).forEach((pattern) => {
+config._.forEach((pattern) => {
   files = files.concat(glob.sync(pattern, {
     nocase: true,
     dot: true,
