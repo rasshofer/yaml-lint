@@ -7,7 +7,6 @@ const DEFAULT_LINT_OPTION = {
 };
 
 function lint(content, opts) {
-
   const options = merge({}, DEFAULT_LINT_OPTION, opts);
 
   return new Promise((resolve, reject) => {
@@ -20,7 +19,6 @@ function lint(content, opts) {
       reject(e);
     }
   });
-
 }
 
 function lintFile(file, opts) {
