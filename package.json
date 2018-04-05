@@ -1,6 +1,6 @@
 {
   "name": "yaml-lint",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "A simple (CLI) tool to lint YAML files",
   "author": {
     "name": "Thomas Rasshofer",
