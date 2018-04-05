@@ -29,7 +29,6 @@ let files = [];
 
 (config._ || []).forEach((pattern) => {
   files = files.concat(glob.sync(path.resolve(process.cwd(), pattern), {
-    nocase: true,
     dot: true,
     ignore: config.ignore,
     absolute: true
