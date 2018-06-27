@@ -82,6 +82,8 @@ yamllint **/*.(yaml|yml) --ignore=foobar.yml --ignore=dir/*.yaml
 
 ## Changelog
 
+* 1.2.4
+  * Fix paths for ignored patterns
 * 1.2.3
   * Remove `nocase` rule to prevent problems on Windows
 * 1.2.2
