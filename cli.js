@@ -30,7 +30,7 @@ let files = [];
 (config._ || []).forEach((pattern) => {
   files = files.concat(glob.sync(path.resolve(process.cwd(), pattern), {
     dot: true,
-    ignore: config.ignore,
+    ignore: [].concat(config.ignore).filter(Boolean).map((item) => path.resolve(process.cwd(), item)),
     absolute: true
   }));
 });
