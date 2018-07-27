@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+"use strict";
+
 const path = require('path');
 const nconf = require('nconf');
 const leprechaun = require('leprechaun');
@@ -27,7 +29,7 @@ const config = nconf.get();
 
 let files = [];
 
-(config._ || []).forEach((pattern) => {
+config._.forEach((pattern) => {
   files = files.concat(glob.sync(path.resolve(process.cwd(), pattern), {
     dot: true,
     ignore: [].concat(config.ignore).filter(Boolean).map((item) => path.resolve(process.cwd(), item)),
@@ -36,25 +38,28 @@ let files = [];
 });
 
 if (files.length === 0) {
-
   leprechaun.error('YAML Lint failed.');
   leprechaun.error('No YAML files were found matching your selection.');
   process.exit(1);
+}
 
-} else {
+Promise.all(files.map((file) => yamlLint
+  .lintFile(file, options)
+  .catch((err) => {
+    err.file = file;
+    return err;
+  })
+)).then((results) => {
+  const errors = results.filter((result) => result !== undefined);
 
-  Promise.all(files.map((file) => yamlLint
-    .lintFile(file, options)
-    .catch((err) => {
-      err.file = file;
-      throw err;
-    })
-  )).then(() => {
+  if (errors.length === 0) {
     leprechaun.success('YAML Lint successful.');
-  }).catch((error) => {
+    process.exit(0);
+  }
+
+  errors.forEach((error) => {
     leprechaun.error(`YAML Lint failed for ${error.file}`);
     leprechaun.error(error.message);
-    process.exit(1);
   });
-
-}
+  process.exit(1);
+});
