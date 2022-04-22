@@ -12,7 +12,7 @@ function lint(content, opts) {
 
   return new Promise((resolve, reject) => {
     try {
-      yaml.safeLoad(content, {
+      yaml.load(content, {
         schema: yaml[options.schema]
       });
       resolve();
