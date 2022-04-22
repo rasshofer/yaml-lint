@@ -28,7 +28,7 @@
     "leprechaun": "0.0.2",
     "lodash.merge": "^4.6.1",
     "lodash.snakecase": "^4.1.1",
-    "nconf": "^0.10.0"
+    "nconf": "^0.11.4"
   },
   "devDependencies": {
     "eslint": "^4.18.2",
