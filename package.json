@@ -55,6 +55,7 @@
     "build": "tsc --build --verbose",
     "watch": "tsc --build --verbose --watch",
     "lint": "eslint 'src/**/*.{js,ts}'",
+    "pretest": "npm run build",
     "test": "jest --coverage"
   },
   "preferGlobal": true,
