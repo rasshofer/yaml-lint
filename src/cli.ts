@@ -48,7 +48,7 @@ if (files.length === 0) {
   consola.error('No YAML files were found matching your selection.');
   process.exit(1);
 } else {
-  Promise.all(
+  Promise.allSettled(
     files.map((file) =>
       lintFile(file, options).catch((err: Error) => {
         throw Object.assign(err, {
@@ -56,13 +56,23 @@ if (files.length === 0) {
         });
       }),
     ),
-  )
-    .then(() => {
-      consola.success('YAML Lint successful.');
-    })
-    .catch((error) => {
-      consola.error(`YAML Lint failed for ${error.file}`);
-      consola.error(error.message);
+  ).then((results) => {
+    const errors = results.filter(
+      (result) => result.status === 'rejected',
+    ) as PromiseRejectedResult[];
+    if (errors.length > 0) {
+      consola.error(
+        `YAML Lint failed for ${errors.length} file${
+          errors.length === 1 ? '' : 's'
+        }`,
+      );
+      errors.forEach((error) => {
+        consola.log(error.reason.file);
+        consola.error(error.reason);
+      });
       process.exit(1);
-    });
+    } else {
+      consola.success('YAML Lint successful.');
+    }
+  });
 }
