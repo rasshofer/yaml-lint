@@ -1,6 +1,6 @@
 import { readFile } from 'fs';
 import {
-  load,
+  loadAll,
   FAILSAFE_SCHEMA,
   JSON_SCHEMA,
   CORE_SCHEMA,
@@ -23,7 +23,7 @@ export type Options = {
 export const lint = (content: string, opts?: Options): Promise<boolean> =>
   new Promise((resolve, reject) => {
     try {
-      load(content, {
+      loadAll(content, undefined, {
         schema: schemas[opts?.schema ?? 'DEFAULT_SCHEMA'],
       });
       resolve(true);
