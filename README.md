@@ -79,6 +79,8 @@ yamllint **/*.(yaml|yml) --ignore=foobar.yml --ignore=dir/*.yaml
 
 ## Changelog
 
+- 1.5.0
+  - Add tests for CLI
 - 1.4.0
   - Display all failing files instead of only the first best one
 - 1.3.0
