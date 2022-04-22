@@ -1,0 +1,25 @@
+---
+name: Tests
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        node-version: [12, 14, 16, 18]
+        runs-on: [ubuntu-latest, windows-latest]
+
+    name: Node.js ${{matrix.node-version}} on ${{matrix.runs-on}}
+
+    runs-on: ${{matrix.runs-on}}
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{matrix.node-version}}
+      - name: Install dependencies
+        run: npm install
+      - name: Run tests
+        run: npm run test

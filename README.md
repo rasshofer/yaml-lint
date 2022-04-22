@@ -2,9 +2,7 @@
 
 > A simple (CLI) tool to lint YAML files
 
-[![Build Status](https://img.shields.io/travis/rasshofer/yaml-lint.svg?style=flat-square)](https://travis-ci.org/rasshofer/yaml-lint)
-[![Dependency Status](https://img.shields.io/david/rasshofer/yaml-lint.svg?style=flat-square)](https://david-dm.org/rasshofer/yaml-lint)
-[![Dev Dependency Status](https://img.shields.io/david/dev/rasshofer/yaml-lint.svg?style=flat-square)](https://david-dm.org/rasshofer/yaml-lint)
+[![Build Status](https://github.com/rasshofer/yaml-lint)](https://github.com/rasshofer/yaml-lint/workflows/ci/badge.svg)
 [![Version](https://img.shields.io/npm/v/yaml-lint.svg?style=flat-square)](https://www.npmjs.com/package/yaml-lint)
 [![Month Download](https://img.shields.io/npm/dm/yaml-lint.svg?style=flat-square)](https://www.npmjs.com/package/yaml-lint)
 [![License](https://img.shields.io/npm/l/yaml-lint.svg?style=flat-square)](https://www.npmjs.com/package/yaml-lint)
