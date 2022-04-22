@@ -79,6 +79,8 @@ yamllint **/*.(yaml|yml) --ignore=foobar.yml --ignore=dir/*.yaml
 
 ## Changelog
 
+- 1.6.0
+  - Implement support for multi-document sources
 - 1.5.0
   - Add tests for CLI
 - 1.4.0
