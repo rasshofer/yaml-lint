@@ -79,6 +79,8 @@ yamllint **/*.(yaml|yml) --ignore=foobar.yml --ignore=dir/*.yaml
 
 ## Changelog
 
+- 1.3.0
+  - Migrate to TypeScript and update dependencies
 - 1.2.4
   - Fix paths for ignored patterns
 - 1.2.3
