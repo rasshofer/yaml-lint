@@ -79,6 +79,9 @@ yamllint **/*.(yaml|yml) --ignore=foobar.yml --ignore=dir/*.yaml
 
 ## Changelog
 
+- 1.7.0
+  - Fix glob pattern to enforce forward slashes to prevent Windows issues
+  - Run tests on different operating systems in CI
 - 1.6.0
   - Implement support for multi-document sources
 - 1.5.0
