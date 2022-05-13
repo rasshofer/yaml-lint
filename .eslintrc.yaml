@@ -27,5 +27,7 @@ overrides:
 rules:
   max-len: 0
   no-mixed-operators: 0
-  prettier/prettier: error
+  prettier/prettier:
+    - error
+    - endOfLine: auto
   import/extensions: 0

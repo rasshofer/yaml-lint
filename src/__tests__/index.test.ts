@@ -19,7 +19,6 @@ describe('YAML Lint', () => {
       lintFile(resolve(__dirname, 'test123.yaml')),
     ).rejects.toMatchObject({
       code: 'ENOENT',
-      errno: -2,
       syscall: 'open',
     });
   });

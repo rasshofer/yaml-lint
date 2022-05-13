@@ -32,12 +32,12 @@ let files: string[] = [];
 
 (config._ || []).forEach((pattern: string) => {
   files = files.concat(
-    globbySync(resolve(process.cwd(), pattern), {
+    globbySync(resolve(process.cwd(), pattern).replace(/\\/g, '/'), {
       dot: true,
       ignore: []
         .concat(config.ignore)
         .filter(Boolean)
-        .map((item) => resolve(process.cwd(), item)),
+        .map((item) => resolve(process.cwd(), item).replace(/\\/g, '/')),
       absolute: true,
     }),
   );
