@@ -24,6 +24,7 @@
     "cli"
   ],
   "dependencies": {
+    "@types/js-yaml": "^4.0.5",
     "consola": "^2.15.3",
     "globby": "^11.1.0",
     "js-yaml": "^4.1.0",
@@ -32,7 +33,6 @@
   "devDependencies": {
     "@jest/globals": "^27.5.1",
     "@types/jest": "^27.4.1",
-    "@types/js-yaml": "^4.0.5",
     "@types/nconf": "^0.10.2",
     "@types/node": "^16.11.27",
     "@typescript-eslint/eslint-plugin": "^5.20.0",
